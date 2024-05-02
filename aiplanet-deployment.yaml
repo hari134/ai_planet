@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: aiplanet
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: aiplanet 
+  template:
+    metadata:
+      labels:
+        app: aiplanet 
+    spec:
+      containers:
+      - image: docker.io/coderhari/aiplanet-v0
+        name: aiplanet
+        ports:
+        - containerPort: 3000 
